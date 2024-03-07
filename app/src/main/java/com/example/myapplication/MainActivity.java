@@ -47,23 +47,17 @@ progressBar.setVisibility(View.VISIBLE);
                 progressBar.setVisibility(View.GONE);
 
 
+                for (int x=0;x<response.length();x++){
 
-
-
-
-                for (int x=0;x<response.length();x++)
 
                     try {
+
                         JSONObject jsonObject=response.getJSONObject(x);
 
 
+                        String name=jsonObject.getString("transliteration");
 
-                         String name=jsonObject.getString("name");
-
-
-                 String transliteration=jsonObject.getString("transliteration");
-
-                 textView.append(transliteration+"\n\n\n"+name);
+                        textView.append(""+name);
 
 
 
@@ -71,18 +65,30 @@ progressBar.setVisibility(View.VISIBLE);
 
 
 
-//                        JSONArray jsonArray=jsonObject.getJSONArray("verses");
-//
-//
-//
-//                        JSONObject jsonObject1=jsonArray.getJSONObject(0);
-//
-//                        String name =jsonObject1.getString("translation");
-//
-//
-//                        textView.append(""+name);
-//
-//
+
+                        JSONArray jsonArray=jsonObject.getJSONArray("verses");
+
+                        for (int i =0;i<jsonArray.length();i++){
+
+                            JSONObject jsonObject1=jsonArray.getJSONObject(i);
+
+
+
+
+
+
+
+
+
+
+                        }
+
+
+
+
+
+
+
 
 
 
@@ -91,6 +97,13 @@ progressBar.setVisibility(View.VISIBLE);
                     } catch (JSONException e) {
                         throw new RuntimeException(e);
                     }
+
+
+
+                }
+
+
+
 
 
 
